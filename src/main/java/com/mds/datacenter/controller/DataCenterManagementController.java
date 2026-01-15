@@ -37,9 +37,21 @@ public class DataCenterManagementController {
         return ResponseEntity.ok(dataCenterManagementService.getLayoutCombinations(index));
     }
 
+    @GetMapping("/layout-combinations")
+    public ResponseEntity<List<Rack>> getLayoutCombinations() {
+
+        return ResponseEntity.ok(dataCenterManagementService.getLayoutCombinations(null));
+    }
+
     @GetMapping("/layout/{index}")
     public ResponseEntity<List<Rack>> getLayout(@PathVariable String index) {
 
         return ResponseEntity.ok(dataCenterManagementService.getLayout(index));
+    }
+
+    @GetMapping("/layout")
+    public ResponseEntity<List<Rack>> getLayout() {
+
+        return ResponseEntity.ok(dataCenterManagementService.getLayout(null));
     }
 }

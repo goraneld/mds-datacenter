@@ -21,6 +21,11 @@ public class DeviceController {
         return ResponseEntity.ok(deviceService.addDevice(device));
     }
 
+    @PostMapping("/multi")
+    public ResponseEntity<List<Device>> addDevice(@Valid @RequestBody List<Device> devices) {
+        return ResponseEntity.ok(deviceService.addDevices(devices));
+    }
+
     @PutMapping("/")
     public ResponseEntity<Device> updateDevice(@Valid @RequestBody Device device) {
         return ResponseEntity.ok(deviceService.updateDevice(device));

@@ -161,7 +161,9 @@ public class DataCenterManagementService {
 
     // This method is used for full combinations calculation, so I can check out optimized algorithm
     public List<Rack> getLayoutCombinations(String index) {
-        importData(index);
+        if (index != null) {
+            importData(index);
+        }
         List<Device> devices = deviceRepository.findAll();
         List<Rack> racks = rackRepository.findAll();
 
@@ -208,7 +210,9 @@ public class DataCenterManagementService {
     }
 
     public List<Rack> getLayout(String index) {
-        importData(index);
+        if (index != null) {
+            importData(index);
+        }
         List<Device> devices = deviceRepository.findAll();
         List<Rack> racks = rackRepository.findAll();
 

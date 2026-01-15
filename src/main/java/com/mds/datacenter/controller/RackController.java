@@ -22,6 +22,11 @@ public class RackController {
         return ResponseEntity.ok(rackService.addRack(rack));
     }
 
+    @PostMapping("/multi")
+    public ResponseEntity<List<Rack>> addRacks(@Valid @RequestBody List<Rack> racks) {
+        return ResponseEntity.ok(rackService.addRacks(racks));
+    }
+
     @PutMapping("/")
     public ResponseEntity<Rack> updateRack(@Valid @RequestBody Rack rack) {
         return ResponseEntity.ok(rackService.updateRack(rack));

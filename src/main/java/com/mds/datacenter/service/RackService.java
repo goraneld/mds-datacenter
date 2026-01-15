@@ -2,7 +2,9 @@ package com.mds.datacenter.service;
 
 import com.mds.datacenter.entity.Rack;
 import com.mds.datacenter.repository.RackRepository;
+import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
+import org.jspecify.annotations.Nullable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -31,5 +33,13 @@ public class RackService {
 
     public List<Rack> getAllRacks() {
         return rackRepository.findAll();
+    }
+
+    public List<Rack> addRacks(List<Rack> racks) {
+        rackRepository.clear();
+        for (Rack rack : racks) {
+            addRack(rack);
+        }
+        return getAllRacks();
     }
 }
