@@ -1,6 +1,6 @@
 # mds-datacenter
 
-Pored standardnih CRUD operacija postoji i dodavanje niza racks/devices slanjem POST 'api/racks' / 'api/devices' requesta sa JSON nizom u body delu.
+Pored standardnih CRUD operacija postoji i dodavanje niza racks/devices slanjem POST 'api/racks/multi' / 'api/devices/multi' requesta sa JSON nizom u body delu.
 Svako unošenje niza racks i devices ce izbrisati stare podatke.
 Nakon unosa testiranje se može izvršiti korišćenjem:
 1. 'api/management/layout-combinations' - ovde se uzimaju sve kombinacije tako da se može koristiti za manji broj racks i devices i radi sporije posto je broj kombinacija = broj racks ^ broj devices i ne radi ok za veliki broj racks i devices
