@@ -12,7 +12,6 @@ import org.springframework.stereotype.Service;
 
 import java.io.InputStream;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 @Service
@@ -22,7 +21,6 @@ public class DataCenterManagementService {
     private final ObjectMapper objectMapper = new ObjectMapper();
     private final DeviceRepository deviceRepository;
     private final RackRepository rackRepository;
-    private static Long count;
     private static Double minDelta;
     private static List<Rack> optimalRacks;
 
@@ -104,7 +102,7 @@ public class DataCenterManagementService {
                 optimalRacks = cloneRacks(racks);
                 minDelta = maxPercent - minPercent;
             }
-//            System.out.println(sb + " " + (maxPercent - minPercent));
+
             return;
         }
 
@@ -183,11 +181,9 @@ public class DataCenterManagementService {
             }
         }).toList());
 
-        count = 0L;
         optimalRacks = null;
         nextDevice(0, devices, racks, new ArrayList<>());
         // number of combinations = number of racks ^ number of devices
-        System.out.println("count: " + count + " " + Math.pow(racks.size(), devices.size()));
         printRacksPowerPercent(optimalRacks);
 
         return optimalRacks;
@@ -202,7 +198,6 @@ public class DataCenterManagementService {
             index++;
         }
         if (index < allDevices.size() && currentDevices.stream().mapToDouble(Device::getPower).sum() > limit) {
-//            System.out.println(Arrays.toString(currentDevices.stream().mapToDouble(Device::getPower).toArray()));
             currentDevices.removeLast();
             return optimalList(allDevices, rack, currentDevices, limit, index);
         }
@@ -245,11 +240,9 @@ public class DataCenterManagementService {
 //            }
         }).toList());
 
-        System.out.println("Medium power: " + mediumPower);
         for(Rack rack : racks) {
             double maxPower = rack.getMaxPower();
             double limit = mediumPower * maxPower;
-            System.out.println("Limit: " + limit + "/" + maxPower);
             List<Device> chosenDevices = optimalList(devices, rack, new ArrayList<>(), limit, 0);
             double sumPower1 = chosenDevices.subList(0, chosenDevices.size()-1).stream().mapToDouble(Device::getPower).sum();
             double sumPower2 = chosenDevices.stream().mapToDouble(Device::getPower).sum();
@@ -260,20 +253,6 @@ public class DataCenterManagementService {
                 devices.removeAll(chosenDevices);
                 rack.setDevices(chosenDevices);
             }
-//            while (mediumPower < potentialDevices.stream().mapToDouble(Device::getPower).sum() / maxPower) {
-//                if (dindex > devices.size() - 1) {
-//                    break;
-//                }
-//                potentialDevices.add(devices.get(dindex++));
-//            }
-//
-//            if (!potentialDevices.isEmpty() && potentialDevices.size() > 1 &&
-//                    potentialDevices.stream().mapToDouble(Device::getPower).sum() / maxPower - mediumPower >
-//                            mediumPower - potentialDevices.subList(0,potentialDevices.size() - 1).stream().mapToDouble(Device::getPower).sum() / maxPower) {
-//                potentialDevices.removeLast();
-//            }
-//            rack.setDevices(potentialDevices);
-//            devices.removeAll(potentialDevices);
         }
 
         printRacksPowerPercent(racks);

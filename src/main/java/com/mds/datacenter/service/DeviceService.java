@@ -1,11 +1,8 @@
 package com.mds.datacenter.service;
 
 import com.mds.datacenter.entity.Device;
-import com.mds.datacenter.entity.Rack;
 import com.mds.datacenter.repository.DeviceRepository;
-import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
-import org.jspecify.annotations.Nullable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
