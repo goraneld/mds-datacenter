@@ -1,5 +1,6 @@
 package com.mds.datacenter.controller;
 
+import com.mds.datacenter.entity.Device;
 import com.mds.datacenter.entity.Rack;
 import com.mds.datacenter.service.RackService;
 import jakarta.validation.Valid;
@@ -38,6 +39,9 @@ public class RackController {
 
     @GetMapping("/")
     public List<Rack> getAllRacks() {
-        return rackService.getAllRacks();
+        return rackService.getAllRacks().stream().peek(rack -> {
+            // Adding sum of power used by devices - I would rather let FE calculate it
+            rack.setUsedPower(rack.getDevices().stream().mapToInt(Device::getPower).sum());
+        }).toList();
     }
 }

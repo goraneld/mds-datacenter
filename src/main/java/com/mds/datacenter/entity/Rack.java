@@ -24,7 +24,8 @@ public class Rack {
     @Min(value = 1, message = "Units must be greater than 0")
     private Integer units;
     @NotNull(message = "Max power is required")
-    @Min(value = 1, message = "Max power must be greater than 0")
+    @Min(value = 5000, message = "Minimum max power is 5000")
     private Integer maxPower;
     private List<Device> devices;
+    private Integer usedPower;
 }

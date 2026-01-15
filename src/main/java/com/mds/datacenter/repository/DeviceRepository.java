@@ -58,4 +58,8 @@ public class DeviceRepository {
     public List<Device> findAll() {
         return store.values().stream().toList();
     }
+
+    public void clear() {
+        store.clear();
+    }
 }

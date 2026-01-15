@@ -1,0 +1,62 @@
+[
+  {
+    "serialNumber": "d-0001",
+    "name": "device 1",
+    "units": 1,
+    "power": 500
+  },
+  {
+    "serialNumber": "d-0002",
+    "name": "device 2",
+    "units": 2,
+    "power": 600
+  },
+  {
+    "serialNumber": "d-0003",
+    "name": "device 3",
+    "units": 2,
+    "power": 800
+  },
+  {
+    "serialNumber": "d-0004",
+    "name": "device 4",
+    "units": 1,
+    "power": 1200
+  },
+  {
+    "serialNumber": "d-0005",
+    "name": "device 5",
+    "units": 2,
+    "power": 500
+  },
+  {
+    "serialNumber": "d-0006",
+    "name": "device 6",
+    "units": 1,
+    "power": 600
+  },
+  {
+    "serialNumber": "d-0007",
+    "name": "device 7",
+    "units": 2,
+    "power": 800
+  },
+  {
+    "serialNumber": "d-0008",
+    "name": "device 8",
+    "units": 2,
+    "power": 1000
+  },
+  {
+    "serialNumber": "d-0009",
+    "name": "device 9",
+    "units": 3,
+    "power": 1000
+  },
+  {
+    "serialNumber": "d-0010",
+    "name": "device 10",
+    "units": 1,
+    "power": 500
+  }
+]

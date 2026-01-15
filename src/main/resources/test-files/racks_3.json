@@ -1,0 +1,20 @@
+[
+  {
+    "serialNumber": "r-0001",
+    "name": "Rack 1",
+    "maxPower": 5000,
+    "units": 10
+  },
+  {
+    "serialNumber": "r-0002",
+    "name": "Rack 2",
+    "maxPower": 10000,
+    "units": 5
+  },
+  {
+    "serialNumber": "r-0003",
+    "name": "Rack 3",
+    "maxPower": 12000,
+    "units": 4
+  }
+]

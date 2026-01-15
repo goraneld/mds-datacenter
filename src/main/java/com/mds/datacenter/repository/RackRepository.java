@@ -95,4 +95,8 @@ public class RackRepository {
             addDevice(device);
         }
     }
+
+    public void clear() {
+        store.clear();
+    }
 }
